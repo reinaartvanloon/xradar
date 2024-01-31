@@ -627,9 +627,9 @@ def get_range_attrs(rng=None):
     if rng is not None:
         diff = np.diff(rng)
         unique = np.unique(diff)
-        if unique:
+        if len(unique)>1:
             spacing = "true"
-            range_attrs["meters_between_gates"] = diff[0]
+            range_attrs["meters_between_gates"] = diff
         else:
             spacing = "false"
         range_attrs["spacing_is_constant"] = spacing
